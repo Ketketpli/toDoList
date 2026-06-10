@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static java.lang.System.*;
+
 @Service
 public class TaskService {
 
@@ -57,5 +59,10 @@ public class TaskService {
                 savedTask.getId(),
                 savedTask.getCreatedAt(),
                 savedTask.getTaskStatus());
+    }
+
+    public String deleteTask(String id) {
+        taskRepository.deleteById(id);
+        return "Tarefa deletada com sucesso!";
     }
 }
